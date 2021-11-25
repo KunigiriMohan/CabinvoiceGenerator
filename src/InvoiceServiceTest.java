@@ -23,11 +23,11 @@ public class InvoiceServiceTest {
 
     }
     @Test
-    public void multipleFare(){
-        InvoiceGenerator invoiceGenerator= new InvoiceGenerator();
-                                                                        //Creating object of InvoiceGenerator class
+    public void invoice_Summary(){
+        InvoiceGenerator invoiceGenerator= new InvoiceGenerator();                          //Creating object of InvoiceGenerator class
         Ride[] ride1 ={new Ride(2.0,5),new Ride(0.1,1)};
-        double fare =invoiceGenerator.caluculateFare(ride1);
-        assertEquals(30,fare,0);
+        InvoiceSummary summary =invoiceGenerator.caluculateFare(ride1);
+        InvoiceSummary invoiceSummary=new InvoiceSummary(2,30.0);
+        assertEquals(invoiceSummary,summary);
     }
 }
