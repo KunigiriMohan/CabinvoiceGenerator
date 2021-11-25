@@ -6,8 +6,13 @@ public class InvoiceGenerator {
 
         int price_per_Kilometer=10;
         int price_per_Minute=1;
-        distance = 2.0;
-        time =5;
-        return ((distance*price_per_Kilometer)+(price_per_Minute*time));
+        int minimum_Fare=5;
+        double total_Fare=(distance*price_per_Kilometer)+(price_per_Minute*time);
+        if(total_Fare<minimum_Fare){
+            return minimum_Fare;
+        }
+        else {
+            return total_Fare;
+        }
     }
 }
