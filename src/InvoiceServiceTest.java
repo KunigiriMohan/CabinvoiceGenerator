@@ -22,4 +22,12 @@ public class InvoiceServiceTest {
         assertEquals(5,amount,0);
 
     }
+    @Test
+    public void multipleFare(){
+        InvoiceGenerator invoiceGenerator= new InvoiceGenerator();
+                                                                        //Creating object of InvoiceGenerator class
+        Ride[] ride1 ={new Ride(2.0,5),new Ride(0.1,1)};
+        double fare =invoiceGenerator.caluculateFare(ride1);
+        assertEquals(30,fare,0);
+    }
 }
