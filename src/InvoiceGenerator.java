@@ -16,13 +16,13 @@ public class InvoiceGenerator {
         }
     }
 /*
-* overloding caluculateFare() method to return fare of multiple rides
+* caluculateFare() method to return object of InvoiceSummary class
 * */
-    public double caluculateFare(Ride[] ride1) {
+    public InvoiceSummary caluculateFare(Ride[] ride1) {
         double total_Fare= 0;
         for (Ride ride :ride1){
             total_Fare+=caluculateFare(ride.distance,ride.time);
         }
-        return total_Fare;
+        return new InvoiceSummary(ride1.length, total_Fare);
     }
 }
