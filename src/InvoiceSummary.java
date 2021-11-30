@@ -17,4 +17,10 @@ public class InvoiceSummary {
         InvoiceSummary that = (InvoiceSummary) o;
         return no_of_Rides == that.no_of_Rides && Double.compare(that.total_Fare, total_Fare) == 0;
     }
+
+
+    public InvoiceSummary getInvoiceSummary() {
+        this.average_Fare = this.total_Fare / this.no_of_Rides;
+        return this;
+    }
 }
