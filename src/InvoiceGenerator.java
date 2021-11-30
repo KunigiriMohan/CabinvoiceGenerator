@@ -2,14 +2,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InvoiceGenerator {
+    int price_per_Kilometer=10;
+    int price_per_Minute=1;
+    int minimum_Fare=5;
+    int price_premiun=15;
+    int price_per_minute_Premium=2;
+    int minimum_fare_Premium=20;
 /*
 * caluculateFare() to to caluculate fare of cab
 * */
     public double caluculateFare(double distance, int time) {
 
-        int price_per_Kilometer=10;
-        int price_per_Minute=1;
-        int minimum_Fare=5;
+
+
         double total_Fare=(distance*price_per_Kilometer)+(price_per_Minute*time);
         if(total_Fare<minimum_Fare){
             return minimum_Fare;
@@ -53,4 +58,19 @@ public class InvoiceGenerator {
         return null;
     }
 
+    /**
+    * calucuateFare() method fare for premium
+    * */
+    public double calculateFare(double distance, int time, String type) {
+
+        if (type.equalsIgnoreCase("Normal")) {
+            double totalFare = distance * price_per_Kilometer + time * price_per_Minute;
+            return Math.max(totalFare, minimum_Fare);
+        } else if (type.equalsIgnoreCase("Premium")) {
+            double totalFare = distance * price_premiun + time * price_per_Minute;
+            return Math.max(totalFare, minimum_fare_Premium);
+        } else {
+            return 0;
+        }
+    }
 }
