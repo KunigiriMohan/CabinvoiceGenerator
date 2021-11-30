@@ -50,4 +50,30 @@ public class InvoiceServiceTest {
         InvoiceSummary expectedInvoiceSummery = new InvoiceSummary(2, 30);
         assertEquals(expectedInvoiceSummery.getInvoiceSummary(), invoiceSummary.getInvoiceSummary());
     }
+/**
+ * Test method to return total fare for premium
+ * */
+
+    @Test
+    public void totalFarereturnforPremium() {
+        InvoiceGenerator invoiceGenerator=new InvoiceGenerator();
+        double distance = 5.0;
+        int time = 12;
+        String type = "premium";
+        double fare = invoiceGenerator.calculateFare(distance, time, type);
+        assertEquals(99, fare, 0.0);
+
+    }
+/**
+ * Test method for return minimum fare for premium
+* */
+    @Test
+    public void givendistancetimereturnMinimumfarePremium() {
+        InvoiceGenerator invoiceGenerator=new InvoiceGenerator();
+        double distance = 1.1;
+        int time = 2;
+        String type = "premium";
+        double fare = invoiceGenerator.calculateFare(distance, time, type);
+        assertEquals(20, fare, 0.0);
+    }
 }
